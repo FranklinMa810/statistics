@@ -1,0 +1,391 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=R,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Homework 3} % Assignment title
+\newcommand{\hmwkDueDate}{Aug 11,\ 2014} % Due date
+\newcommand{\hmwkClass}{Statistics} % Course/class
+\newcommand{\hmwkClassTime}{6:00 pm} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Instructor: Rados Radoicic} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Weiyi Chen} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem T1: Prediction with confidence
+    \begin{homeworkSection}{1.}
+        Mean response is an estimate of the mean of the y population associated with $x$, that is $E(y | x)=\hat{y}\!$. The variance of the mean response is given by
+        \begin{equation}
+            \text{Var}\left(\hat{\alpha} + \hat{\beta}x\right) = \text{Var}\left(\hat{\alpha}\right) + \left(\text{Var} \hat{\beta}\right)x^2 + 2 x\text{Cov}\left(\hat{\alpha},\hat{\beta}\right) .
+        \end{equation}
+        This expression can be simplified to
+        \begin{equation}
+            \text{Var}\left(\hat{\alpha} + \hat{\beta}x\right) =\sigma^2\left(\frac{1}{n} + \frac{\left(x - \bar{x}\right)^2}{\sum (x_i - \bar{x})^2}\right).
+        \end{equation}
+        The $100(1-\alpha)\%$ confidence intervals are computed as $y \pm t_{\frac{\alpha }{2},n - 2} \sqrt{\text {Var}}$, since $\sigma$ is unknown, we estimate it by $s = \sum (x_i - \overline x)^2 / (n-1)$, therefore the confidence interval is
+        \begin{equation}
+            \beta'x \pm t_{\frac{\alpha }{2},n - 2} \sqrt{s^2\left(\frac{1}{n} + \frac{\left(x - \bar{x}\right)^2}{\sum (x_i - \bar{x})^2}\right)}
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{2.}
+        The predicted response distribution is the predicted distribution of the residuals at the given point $x$. So the variance is given by
+        \begin{equation}
+            \text{Var}\left(y - \left[\hat{\alpha} + \hat{\beta}x\right]\right) = \text{Var}\left(y\right) + \text{Var}\left(\hat{\alpha} + \hat{\beta}x\right) .
+        \end{equation}
+        The second part of this expression was already calculated for the mean response. Since $\text{Var}\left(y\right)=\sigma^2$ (a fixed but unknown parameter that can be estimated), the variance of the predicted response is given by
+        \begin{equation}
+            \text{Var}\left(y - \left[\hat{\alpha} + \hat{\beta}x\right]\right) = \sigma^2 + \sigma^2\left(\frac{1}{m} + \frac{\left(x - \bar{x}\right)^2}{\sum (x_i - \bar{x})^2}\right) = \sigma^2\left(1+\frac{1}{m} + \frac{\left(x - \bar{x}\right)^2}{\sum (x_i - \bar{x})^2}\right) .
+        \end{equation}
+        In the same way I did in part 1, the $100(1-\alpha)\%$ confidence interval is
+        \begin{equation}
+            \beta'x \pm t_{\frac{\alpha }{2},n - 2} \sqrt{s^2\left(1+\frac{1}{m} + \frac{\left(x - \bar{x}\right)^2}{\sum (x_i - \bar{x})^2}\right)}
+        \end{equation} 
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem T2: Linear hypothesis
+    \begin{homeworkSection}{Answer}
+        According to the null hypothesis, which can be written as $H_0: R\beta = r$, where
+        \begin{equation}
+            R = \left( 
+            \begin{array}{ccc}
+                1 & 0 & 2 \\
+                0 & 1 & -1
+            \end{array} \right) 
+            \text{ and }
+            r = \left( 
+            \begin{array}{c}
+                4 \\
+                0.5
+            \end{array} \right)
+        \end{equation}
+        Calculate the F-ratio as:
+        \begin{equation}
+            F = \frac{(Rb-r)'(R(X'X)^{-1}R')^{-1}(Rb-r)/m}{s^2} = 0.0614
+        \end{equation}
+        where $m = rank(R) = 2$. \\
+        The critical value is:
+        \begin{equation}
+            F_\alpha(m, n-k) = F_{0.05}(2, 20-3) = 3.591 > 0.0614
+        \end{equation}
+        Therefore accept $H_0$.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 6
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem T6: Hide and Seek
+    \begin{homeworkSection}{Answer}
+        For the column $df$, just remember the rule "minus one":
+        \begin{align}
+            \text{We have 3 different factors} &\Rightarrow df_{Regression} = 2 \\
+            df_{Regression} + df_{error} = df_{total} &\Rightarrow df_{error} = 14 - 2 = 12
+        \end{align}
+        For the column $MS$ just remember the rule $MS = SS/df$, then:
+        \begin{equation}
+            MS_{error} = 3.250 / 12 = 0.2708
+        \end{equation}
+        Given the p-value as $0.05$ and $df$ above, the F-statistics is
+        \begin{equation}
+            F_{2,12}(0.05) = 3.8853
+        \end{equation}
+        The F-value is also given by:
+        \begin{align}
+            F = MS_{Regression} / MS_{error} &\Rightarrow MS_{Regression} = F\times MS_{error} = 1.0523 \\
+            MS = SS/df &\Rightarrow SS_{Regression} = MS_{Regression} \times df_{Regression} = 2.1045
+        \end{align}
+        The total SS is always equal to the sum of the other SS:
+        \begin{equation}
+            SS_{total} = SS_{Regression} + SS_{error} = 5.3545
+        \end{equation}
+        Therefore the ANOVA table is:
+        \begin{table}[h]
+        \centering
+            \begin{tabular}{l|lllll}
+            Source     & df & SS    & MS    & F     & p-value \\ \hline
+            Regression & 2  & 2.1045 & 1.0523 & 3.8853 & 0.05    \\
+            error      & 12 & 3.2500 & 0.2708 &        &         \\
+            total      & 14 & 5.3545 &        &        &        
+            \end{tabular}
+        \end{table}
+        \\$R^2$ and adjusted $R^2$ are:
+        \begin{align}
+            R^2 &= 1 - \frac{SS_{error}}{SS_{total}} = 0.3930 \\
+            \overline R^2 &= 1 - \frac{MS_{error}}{MS_{total}} = 0.2047
+        \end{align}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 7
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem T7: Matrix algebra of fitted value and residuals
+    \begin{homeworkSection}{(A)}
+        Suppose $b$ is a "candidate" value for the parameter $\beta$. The quantity $y_i − x_i'b$ is called the residual for the i-th observation, it measures the vertical distance between the data point $(x_i, y_i)$ and the hyperplane $y = x'b$, and thus assesses the degree of fit between the actual data and the model. The sum of squared residuals (SSR) is a measure of the overall model fit:
+        \begin{equation}
+            S(b) = \sum_{i=1}^n (y_i - x'_ib)^2 = (y-Xb)^T(y-Xb),
+        \end{equation}
+        The value of b which minimizes this sum is called the OLS estimator for $\beta$. The function $S(b)$ is quadratic in $b$ with positive-definite Hessian, and therefore this function possesses a unique global minimum at $b =\hat\beta$, which can be given by the explicit formula:
+        \begin{equation}
+            \hat\beta = {\rm arg}\min_{b} S(b) =  \bigg(\frac{1}{n}\sum_{i=1}^n x_ix'_i\bigg)^{\!-1} \!\!\cdot\, \frac{1}{n}\sum_{i=1}^n x_iy_i 
+        \end{equation}
+        or equivalently in matrix form,
+        \begin{equation}
+            \hat\beta = (X^TX)^{-1}X^Ty\ . 
+        \end{equation}
+        After we have estimated $\beta$, the fitted values (or predicted values) from the regression will be
+        \begin{equation}
+            \hat{y} = X\hat\beta = Py,
+        \end{equation}
+        where $P = X(X^TX)^{−1}X^T$ is the projection matrix. The annihilator matrix $M = I_n − P$ is a projection matrix onto the space orthogonal to $X$. Both matrices P and M are symmetric and idempotent (meaning that $P^2 = P$), and relate to the data matrix $X$ via identities $PX = X$ and $MX = 0$. Matrix $M$ creates the residuals from the regression:
+        \begin{equation}
+            e = y - X\hat\beta = My = M\varepsilon.
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(B)}
+        Using these residuals we can estimate the value of $\sigma^2$:
+        \begin{equation}
+               s^2 = \frac{e'e}{n-p} = \frac{y'My}{n-p} = \frac{S(\hat\beta)}{n-p}
+        \end{equation}
+        where we can find that
+        \begin{equation}
+            SSR = S(\hat\beta) = e'e = (M\varepsilon)'(M\varepsilon) = \varepsilon' M\varepsilon
+        \end{equation}
+        using the conclusion of part(A) as well as the symmetric and idempotent properties of $M$.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 8
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem T8: No Covariance
+    \begin{homeworkSection}{Answer}
+        By definition,
+        \begin{equation}
+            Cov(b,e|X) = E[(b-E[b|X])(e-E[e|X])'|X]
+        \end{equation}
+        Since $E[b|X] = \beta$, we have
+        \begin{equation}
+            b - E[b|X] = A\epsilon
+        \end{equation}
+        where $A = (X'X)^{-1}X'$.\\
+        Use (A) from the previous problem,
+        \begin{equation}
+            e - E[e|X] = M\epsilon - 0 = M\epsilon
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            Cov(b,e|X) = E[A\epsilon(M\epsilon)'|X] = A E[\epsilon\epsilon']M
+        \end{equation}
+        since both $A$ and $M$ are functions of $X$. Further,
+        \begin{equation}
+            A E[\epsilon\epsilon']M = E[\epsilon\epsilon'] AM = E[\epsilon\epsilon'] (X'X)^{-1}X'M = E[\epsilon\epsilon'] (X'X)^{-1}(MX)' = 0 
+        \end{equation}
+        Therefore using $MX = 0$,
+        \begin{equation}
+            Cov(b,e|X) = 0
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 9
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem T9: Variance of $s^2$
+    \begin{homeworkSection}{Answer}
+        The estimator $\scriptstyle\hat\beta$ is normally distributed, with mean and variance as given in the lecture note:
+        \begin{equation}
+            \hat\beta\ \sim\ \mathcal{N}\big(\beta,\ \sigma^2(X'X)^{-1}\big)
+        \end{equation}
+        Consider the z-statistic:
+        \begin{equation}
+            z = \frac{\hat\beta\ - \beta}{\sqrt{\sigma^2(X'X)^{-1}}}
+        \end{equation}
+        then $z|X \sim N(0,1)$. \\
+        $\sigma^2$ in $z$ is replaced by $s^2$ in t, consider the t-statistic:
+        \begin{equation}
+            t = \frac{z}{s^2/\sigma^2} = \frac{z}{\sqrt{e'e/[(n-k)\sigma^2]}} = \frac{z}{\sqrt{q/(n-k)}}
+        \end{equation}
+        where $q = ee'/\sigma^2$. \\
+        According to the conclusion in problem T7, 
+        \begin{equation}
+            q = \frac{e'e}{\sigma^2} = \frac{\epsilon' M \epsilon}{\sigma^2} = \frac{\epsilon'}{\sigma} M \frac{\epsilon}{\sigma}
+        \end{equation}
+        Using the fact that if $a=\frac{\epsilon'}{\sigma} \sim N(0, I)$, and $M$ is an idempotent matrix, then "the quadratic form" $a'Aa$ has a $\chi^2$-distribution with \# of degrees of freedom = rank(M), therefore the estimator $s^2$ will be proportional to the chi-squared distribution:
+        \begin{equation}
+            s^2\ \sim\ \frac{\sigma^2}{n-k} \cdot \chi^2_{n-k}
+        \end{equation}
+        According to the hint, since the mean of $s^2$ is $\mu(s^2|X) = \frac{\sigma^2}{n-k}$, then
+        \begin{equation}
+            Var(s^2|X) = 2\mu(s^2|X) = \frac{2\sigma^2}{n-k}
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+\end{document}

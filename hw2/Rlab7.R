@@ -1,0 +1,5 @@
+library("fEcofin")
+Berndt = as.matrix(berndtInvest[,2:5])
+cov(Berndt)
+cor(Berndt)
+pairs(Berndt)

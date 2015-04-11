@@ -1,0 +1,399 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=R,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Homework 2} % Assignment title
+\newcommand{\hmwkDueDate}{Aug 6,\ 2014} % Due date
+\newcommand{\hmwkClass}{Statistics} % Course/class
+\newcommand{\hmwkClassTime}{6:00 pm} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Instructor: Rados Radoicic} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Weiyi Chen} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem T1: "Exponential"
+    \begin{homeworkSection}{Distribution of T}
+        Since the pdf of exponential distribution is 
+        \begin{equation}
+            f_\alpha(x) = \alpha e^{-\alpha x}
+        \end{equation}
+        when $x \ge 0$. Recall that the pdf of gamma distribution is
+        \begin{equation}
+             g(x;\alpha,\beta) = \frac{\beta^{\alpha} x^{\alpha-1} e^{-x\beta}}{\Gamma(\alpha)} \quad \text{ for } x \geq 0 \text{ and } \alpha, \beta > 0
+        \end{equation}
+        Therefore the observations from the exponential distribution $E(\alpha)$ satisfies $X \sim \Gamma(1, \alpha)$. Then, the sum of them
+        \begin{equation}
+            T = \sum_{i=1}^n X_i \sim \Gamma(n, \alpha) 
+        \end{equation}
+        according to the summation property of gamma distribution.
+    \end{homeworkSection}
+    \begin{homeworkSection}{Distribution of S}
+        For $S = 2\alpha T = \sum_{i=1}^n 2\alpha X_i$, let $Y_i = 2\alpha X_i$, then
+        \begin{equation}
+            F_\alpha(y) = Pr(Y < y) = Pr(2\alpha X < y) = Pr(X < \frac{y}{2\alpha}) = 1 - e^{-y/2}
+        \end{equation}
+        which implies $Y_i$ are observations from the exponential distribution $E(1/2)$, therefore the sum of them
+        \begin{equation}
+            S = \sum_{i=1}^n Y_i \sim \Gamma(n, \frac{1}{2}) \sim \chi_{2n}^2
+        \end{equation}
+        since the pdf of Chi-squared distribution is
+        \begin{equation}  
+            f(x;\,k) = \frac{x^{(k/2-1)} e^{-x/2}}{2^{k/2} \Gamma\left(\frac{k}{2}\right)}
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{Confidence interval}
+        To derive the 95\% confidence interval for the mean $1/\alpha$, we first find the asymptotic normality, the fisher information is
+        \begin{equation}
+            I(\alpha_0) = -E_{\alpha_0}\left[(\frac{\partial^2}{\partial \alpha^2} l_\alpha(x))|_{\alpha=\alpha_0}\right] = \frac{1}{\alpha_0^2}
+        \end{equation}
+        So the asymptotic normality gives:
+        \begin{equation}
+            \sqrt{n}(\frac{1}{\overline X} - \alpha_0) \to N(0, \alpha_0^2)
+        \end{equation}
+        as $n \to \infty$. Therefore we know,
+        \begin{equation}
+            Pr(-c < \sqrt{n}(\frac{1}{\overline X} - \alpha) / \alpha < c) = 0.95
+        \end{equation}
+        where $c=1.96$ for normal distribution. \\
+        For the 95\% confidence interval of $1/\alpha$, we just need to rewrite the inequality in the probability bracket above and derive
+        \begin{equation}
+            Pr(\overline X(1-\frac{c}{\sqrt{n}}) < \frac{1}{\alpha} < \overline X(1+\frac{c}{\sqrt{n}})) = 0.95 
+        \end{equation}
+        Therefore the interval is
+        \begin{equation}
+            \overline X(1-\frac{c}{\sqrt{n}}) < \frac{1}{\alpha} < \overline X(1+\frac{c}{\sqrt{n}})
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 3
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem T3: "Poisson"
+    \begin{homeworkSection}{Minimize $\alpha_1(\delta) + \alpha_2(\delta)$}
+        Recall the theorem: let $\delta^*$ denote a test procedure such that the hypothesis $H_0$ is not rejected if $af_0(x) > bf_1(x)$ and the hypothesis $H_0$ is rejected if $af_0(x) < bf_1(x)$. The null hypothesis $H_0$ can be either rejected or not if $af_0(x) = bf_1(x)$. Then for every other test procedure $\delta$,
+        \begin{equation}
+            a\alpha(\delta^*)+b\beta(\delta^*) \le a\alpha(\delta) + b\beta(\delta)
+        \end{equation}
+        Now we use this theorem for the values of $a=b=1$, the optimal procedure to reject $H_0$ if
+        \begin{equation}
+            \frac{f_1(X)}{f_0(X)} > 1
+        \end{equation}
+        for Poisson distribution,
+        \begin{equation}
+            f_i(X) = \frac{\exp(-n\lambda_i)\lambda_i^{\sum_ix_i}}{\prod_{i=1}^n(x_i!)}
+        \end{equation}
+        Now we take the ratio of $f_2(X)/f_1(X)$ and then take log on both sides,
+        \begin{equation}
+            \log\frac{f_2(X)}{f_1(X)} = \log\frac{\exp(-n\lambda_2)\lambda_2^{\sum_ix_i}}{\exp(-n\lambda_1)\lambda_1^{\sum_ix_i}} = \sum_ix_i\log(\frac{\lambda_2}{\lambda_1}) - n(\lambda_2 - \lambda_1)
+        \end{equation}
+        Since $\lambda_2>\lambda_1$, it follows that $\frac{f_2(X)}{f_1(X)} > 1$ if and only if $\overline X_n > c$. 
+    \end{homeworkSection}
+    \begin{homeworkSection}{Find the value of c}
+        Solving the equation above as
+        \begin{equation}
+            \sum_ix_i\log(\frac{\lambda_2}{\lambda_1}) - n(\lambda_2 - \lambda_1) > 0
+        \end{equation}
+        then
+        \begin{equation}
+            \overline X_n > \frac{\lambda_2-\lambda_1}{\log(\lambda_2/\lambda_1)}
+        \end{equation}
+        Therefore the value of c is
+        \begin{equation}
+            c = \frac{\lambda_2-\lambda_1}{\log(\lambda_2/\lambda_1)}
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{Determine the minimum value of $\alpha_1(\delta) + \alpha_2(\delta)$}
+        Now if $H_i$ is true then $Y = \sum_i X_i$ will have a Poisson distribution with mean $n\lambda_i$. From last part we have
+        \begin{equation}
+            y = n\frac{\lambda_2-\lambda_1}{\log(\lambda_2/\lambda_1)} = 7.213
+        \end{equation}
+        The poisson mean is
+        \begin{equation}
+            n\lambda_1 = 5
+        \end{equation}
+        So we find the $\alpha(\delta)$ for $n=20, \lambda_1 = 0.25$,
+        \begin{equation}
+            \alpha_1(\delta) = Pr(Y>7.213|H_1) = 0.1333
+        \end{equation}
+        In the same way,
+        \begin{equation}
+            \alpha_2(\delta) = Pr(Y\le 7.213|H_2) = 0.2203
+        \end{equation}
+        Therefore minimum of $\alpha_1(\delta) + \alpha_2(\delta)$ is
+        \begin{equation}
+            \alpha_1(\delta) + \alpha_2(\delta) = 0.3536
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem T4: "Goodness of height"
+    \begin{homeworkSection}{Answer}
+        Recall that the height of the certain large city men follows normal distribution for which the mean is 68 inches and the standard deviation is 1 inch. Let the heights of the 500 men who exist in a certain neighborhood of the city be $X$, following normal distribution. Let $Z$ be the random variable following normal distribution, the distribution is shown as follows:
+        \begin{table}[ht]
+        \centering
+        \begin{tabular}{l|l|r}
+Probability of X                & Probability of Z               & Required probability \\ \hline
+Pr(X\textless66)                & Pr(Z\textless-2)               & 0.02275              \\
+Pr(66\textless X\textless67.5)   & Pr(-2\textless Z\textless-0.5)  & 0.2858               \\
+Pr(67.5\textless X\textless68.5) & Pr(-0.5\textless Z\textless0.5) & 0.3829               \\
+Pr(68.5\textless X\textless69)   & Pr(0.5\textless Z\textless2)    & 0.2858               \\
+Pr(X\textgreater69)             & Pr(Z\textgreater2)             & 0.02275             
+        \end{tabular}
+        \end{table}
+        \\By using the above table, we express the null hypothesis in the above situation as follows:
+        \begin{equation}
+            H_0: p_i = p_i^0
+        \end{equation}
+        for all heights come from normal distribution. Against is the following alternative hypothesis:
+        \begin{equation}
+            H_1: p_i \neq p_i^0
+        \end{equation}
+        at least one height not come from normal distribution. Now we observed following values between the illustrated intervals:
+        \begin{table}[ht]
+        \centering
+        \begin{tabular}{l|r|r}
+Interval                    & Value($N_i$) & $np_i^0$          \\ \hline
+X\textless66                & 18       & 500$\times$0.02275 \\
+66\textless X\textless67.5   & 177      & 500$\times$0.2858  \\
+67.5\textless X\textless68.5 & 198      & 500$\times$0.3829  \\
+68.5\textless X\textless69   & 102      & 500$\times$0.2858  \\
+X\textgreater69             & 5        & 500$\times$0.02275    
+        \end{tabular}
+        \end{table}
+        \\Now we compute the chi-square test statistics as follows:
+        \begin{equation}
+            Q = \sum_k \frac{(N_i - np_i^0)^2}{np_i^0} = 27.50
+        \end{equation}
+        Then we compute the p-value for the observed test statistic. The decision criterion is: reject null-hypothesis if p-value is less than $\alpha$. As per the definition, the p-value for the given alternative test statistic would be
+        \begin{equation}
+            Pr(\chi_4^2 \le 27.50) = 1.5749 \times 10^{-5}
+        \end{equation}
+        Hence we have strong evidence that $H_0$ is false. Thus we can conclude that at least one height not come from the normal distribution.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 5
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem T5: "NBA"
+    \begin{homeworkSection}{Answer}
+        We are interested to test the null hypothesis that observed $n=200$ values follow the binomial distribution. The probability are as follows:
+        \begin{align}
+            \pi_0(\theta) &= P_0 = (1-\theta)^4 \\
+            \pi_1(\theta) &= P_1 = 4\theta(1-\theta)^3 \\
+            \pi_2(\theta) &= P_2 = 6\theta^2(1-\theta)^2 \\
+            \pi_3(\theta) &= P_3 = 4\theta^3(1-\theta) \\
+            \pi_4(\theta) &= P_4 = \theta^4
+        \end{align}
+        The observed values are given as $N_{i=0:4} = 33,67,66,15,19$ respectively. Consider the following hypothesis for the above situation:
+        \begin{equation}
+            H_0: \text{Observed values follow binomial distribution}
+        \end{equation}
+        Against
+        \begin{equation}
+            H_1: \text{An observed value does not follow binomial distribution}
+        \end{equation}
+        To test the hypothesis, the likelihood function $L(\theta)$ for the observed numbers $N_0, \dots, N_4$ will be
+        \begin{equation}
+            L(\theta) = \prod_{i=0}^4 [\pi_i(\theta)]^{N_i}
+        \end{equation}
+        Taking the logarithm of both sides we get
+        \begin{equation}
+            l(\theta) = (N_1 + 2N_2 + 3N_3 + 4N_4)\log\theta + (4N_0+3N_1+2N_2+N_3)\log(1-\theta)
+        \end{equation}
+        Now taking the differentiation with respect to $\theta$ and let it be 0, we obtain MLE of $\theta$ as:
+        \begin{equation}
+            \hat \theta = \frac{N_1 + 2N_2 + 3N_3 + 4N_4}{4n} = 0.4
+        \end{equation}
+        Similar to the last problem, by using the MLE of $\theta$ and the binomial distribution we compute the probabilities as follows:
+        \begin{table}[ht]
+        \centering
+        \begin{tabular}{c|r|r}
+Games & $N_i$  & $n\pi_i(\hat \theta)$          \\ \hline
+0     & 33 & 25.92       \\
+1     & 67 & 17.28       \\
+2     & 66 & 11.52       \\
+3     & 15 & 7.68        \\
+4     & 19 & 5.12
+        \end{tabular}
+        \end{table}
+        \\Now we compute the chi-square test statistics as follows:
+        \begin{equation}
+            Q = \sum_k \frac{(N_i - n\pi_i(\hat\theta)^2}{n\pi_i(\hat\theta)} = 47.81
+        \end{equation}
+        The tail area corresponding to 47.81 is computed by using the chi-square distribution with degree of freedom as $5-1-1=3$, and the p-value is $2.3373 \times 10^{-10}$. The p-value is very small therefore we reject the null hypothesis and conclude that the observed value does not follow binomial distribution.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 6
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Problem P1: Chapter 7 R-lab. \\
+    The package 'fEcofin' is not available currently, we are not able to derive the data.
+\end{homeworkProblem}
+\end{document}
